@@ -23,8 +23,10 @@
     "@angular/ssr": "^18.2.1",
     "@ng-bootstrap/ng-bootstrap": "^17.0.1",
     "@popperjs/core": "^2.11.8",
+    "@primeng/themes": "^19.0.9",
     "bootstrap": "^5.3.3",
     "express": "^4.18.2",
+    "primeng": "^19.0.9",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
