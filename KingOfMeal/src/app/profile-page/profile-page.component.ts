@@ -4,15 +4,14 @@ import {RightSidebarComponent} from "../shared/right-sidebar/right-sidebar.compo
 import {SearchBarComponent} from "../shared/search-bar/search-bar.component";
 
 @Component({
-  selector: 'app-profile-page',
-  standalone: true,
-  imports: [
-    SearchBarComponent,
-    LeftSidebarComponent,
-    RightSidebarComponent
-  ],
-  templateUrl: './profile-page.component.html',
-  styleUrl: './profile-page.component.css'
+    selector: 'app-profile-page',
+    imports: [
+        SearchBarComponent,
+        LeftSidebarComponent,
+        RightSidebarComponent
+    ],
+    templateUrl: './profile-page.component.html',
+    styleUrl: './profile-page.component.css'
 })
 export class ProfilePageComponent {
 }
