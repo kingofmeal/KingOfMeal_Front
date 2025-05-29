@@ -1,0 +1,35 @@
+/* Couleurs personnalisées */
+.custom-navbar {
+    background-color: #4B2E3F; /* Couleur de fond principale */
+    height: 50px;
+  }
+  
+  /* Boutons ronds gris */
+  .btn-circle {
+    background-color: #D9D9D9;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+  }
+  
+  /* Barre de recherche */
+  .search-wrapper {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .custom-search {
+    background-color: #AAA3AA; /* Couleur de fond barre */
+    border: none;
+    color: red; /* Texte/placeholder */
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+  /* Avatar rond */
+  .avatar-img {
+    width: 24px;
+    height: 24px;
+  }
+  
