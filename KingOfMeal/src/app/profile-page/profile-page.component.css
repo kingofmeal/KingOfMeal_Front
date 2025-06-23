@@ -1,0 +1,12 @@
+.layout {
+  display: flex;
+}
+
+app-left-sidebar {
+  width: 200px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem;
+}
