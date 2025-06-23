@@ -1,9 +1,15 @@
-<nav class="navbar bg-body-tertiary ">
-  <div class="">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2">
-    </form>
-    <p>peuleu peuleu</p>
+<header class="search-header">
+  <div class="logo">
+    <span class="logo-strong">King of Meal</span>
   </div>
-</nav>
 
+  <div class="search-box p-input-icon-right">
+    <input pInputText type="text" placeholder="Rechercher des recettes, hashtags, utilisateurs…" />
+    <i class="pi pi-search"></i>
+  </div>
+
+  <div class="right-icons">
+    <button pButton pRipple type="button" icon="pi pi-bell" class="p-button-rounded p-button-text p-button-plain notification-btn"></button>
+    <p-avatar shape="circle" styleClass="profile-avatar" label="K" size="large"></p-avatar>
+  </div>
+</header>
