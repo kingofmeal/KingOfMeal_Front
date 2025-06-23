@@ -1,0 +1,43 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.header-title {
+  text-align: left;
+  flex: 1;
+}
+
+.header-title h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header-title p {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: 14px;
+}
+
+.create-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.create-button:hover {
+  background-color: #b02a37;
+}

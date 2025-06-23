@@ -1,0 +1,23 @@
+<div class="header-container">
+  <div class="header-title">
+    <h2>Concours Culinaires</h2>
+    <p>Participez aux défis et montrez vos talents !</p>
+  </div>
+
+  <button class="create-button" (click)="openDialog()">
+    <i class="pi pi-trophy"></i>
+    Créer Concours
+  </button>
+</div>
+
+<p-dialog
+  header="Créer un concours"
+  [(visible)]="displayDialog"
+  [modal]="true"
+  [closable]="true"
+  [dismissableMask]="true"
+  [style]="{width: '500px'}"
+>
+  <p>Contenu du formulaire à venir ici</p>
+</p-dialog>
+
