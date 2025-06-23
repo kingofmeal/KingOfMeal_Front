@@ -7,7 +7,6 @@ import {ConcoursHeaderComponent} from "../app/shared/concours-header/concours-he
 @Component({
   selector: 'app-profile-page',
   imports: [
-    SearchBarComponent,
     LeftSidebarComponent,
     RightSidebarComponent,
     ConcoursHeaderComponent
