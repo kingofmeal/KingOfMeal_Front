@@ -1,0 +1,260 @@
+/* --- Fontes et fond global --- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  color: #222;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  background-color: #fff;
+   padding: 24px;
+  height: 100vh;
+  min-width: 240px;
+  font-size: 0.95rem;
+  box-shadow: none;
+}
+
+.sidebar h2 {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 16px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+
+.sidebar li {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #222;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  border-bottom: none;
+  padding-bottom: 6px;
+}
+
+.sidebar li:hover {
+  color: #222;
+  font-weight: 500;
+}
+
+/* --- Topbar --- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* --- Filtres (Pour vous, Récents, Populaires) --- */
+.filters button {
+  border: none;
+  background-color: #f3f4f6;
+  color: #222;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filters button.active,
+.filters button:hover {
+  background-color: #e5e7eb;
+}
+
+/* --- Hashtags tendance (dans colonne de droite) --- */
+.hashtags {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.hashtags h5 {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.hashtags ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hashtags li {
+  display: inline-block;
+  background-color: #f3f4f6;
+  color: #444;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin: 4px 6px 4px 0;
+}
+
+/* --- Concours en cours (colonne droite) --- */
+.contest-box {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  transition: box-shadow 0.2s ease;
+}
+
+.contest-box:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contest-box .contest-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.contest-box .contest-time {
+  display: inline-block;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.contest-box .participants {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.contest-box button {
+  width: 100%;
+  background-color: #4b1c40;
+  color: #fff;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.contest-box button:hover {
+  background-color: #3a1533;
+}
+
+/* --- Feed (posts) --- */
+.feed {
+  padding: 24px;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.post-card .image-placeholder {
+  width: 100%;
+  height: 250px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 40px;
+}
+
+.post-details {
+  padding: 16px 20px;
+}
+
+.post-details .author {
+  color: #555;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.post-details h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.post-details p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+.post-details .tags span {
+  display: inline-block;
+  background-color: #f3f4f6;
+  color: #374151;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  margin: 2px 6px 2px 0;
+}
+
+.interactions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.interactions span i {
+  margin-right: 4px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 20px;
+  }
+
+  .feed {
+    padding: 16px;
+  }
+
+  .post-card .image-placeholder {
+    height: 180px;
+  }
+}

@@ -1,0 +1,90 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+
+  <div class="flex-grow-1">
+    <app-search-bar></app-search-bar>
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="col-md-8">
+      <h2 class="fw-bold">Créer une nouvelle recette</h2>
+
+      <!-- Titre -->
+      <div class="mb-3">
+        <label for="recipeTitle" class="form-label fw-semibold">Titre de la recette</label>
+        <input type="text" id="recipeTitle" class="form-control" [(ngModel)]="title" placeholder="Ex: Tarte aux fraises et crème pâtissière">
+      </div>
+
+      <!-- Section Photo -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Photos</label>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="photo-upload text-center border rounded d-flex flex-column justify-content-center align-items-center p-4">
+              <i class="fa-solid fa-upload fa-2x mb-2"></i>
+              <p class="mb-1 fw-bold">Glissez-déposez votre photo principale</p>
+              <p class="text-muted small">PNG, JPG ou WEBP (max. 5 MB)</p>
+              <input type="file" accept="image/*" class="form-control mt-2" (change)="onImageSelected($event)">
+            </div>
+          </div>
+
+          <!-- Miniatures vides (5) -->
+          <div class="col-2" *ngFor="let i of [1,2,3,4,5]">
+            <div class="photo-thumbnail border rounded d-flex justify-content-center align-items-center">
+              <span class="text-muted">+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-4">
+        <label for="description" class="form-label fw-semibold">Description</label>
+        <textarea id="description" class="form-control" [(ngModel)]="description" rows="4" placeholder="Décrivez votre recette en quelques phrases..."></textarea>
+      </div>
+
+      <!-- Temps & portions -->
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Temps de préparation</label>
+          <input type="text" class="form-control" [(ngModel)]="prepTime" placeholder="Ex: 30 min">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Temps de cuisson</label>
+          <input type="text" class="form-control" [(ngModel)]="cookTime" placeholder="Ex: 25 min">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Nombre de portions</label>
+          <input type="text" class="form-control" [(ngModel)]="portions" placeholder="Ex: 8 pers.">
+        </div>
+      </div>
+
+      <!-- Boutons -->
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-secondary" (click)="saveDraft()">Enregistrer comme brouillon</button>
+        <button class="btn btn-danger" (click)="publishRecipe()">Publier</button>
+      </div>
+    </div>
+
+    <!-- Colonne droite - Aperçu -->
+    <div class="col-md-4">
+      <div class="border rounded p-3">
+        <h5 class="fw-bold">Aperçu</h5>
+        <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="height: 180px;">
+          <img *ngIf="imagePreview" ngSrc="imagePreview" alt="Aperçu" class="img-fluid h-100">
+          <span *ngIf="!imagePreview" class="text-muted">Aperçu de l'image</span>
+        </div>
+        <h6 class="fw-bold">{{ title || 'Titre de la recette' }}</h6>
+        <p class="text-muted">{{ description || 'Une courte description de la recette...' }}</p>
+        <div class="mb-2">
+          <span *ngFor="let tag of tags" class="badge bg-light text-dark me-1">#{{ tag }}</span>
+        </div>
+        <div class="d-flex justify-content-between text-center small text-muted">
+          <div><i class="fa-regular fa-clock"></i><br>{{ prepTime || 'Préparation' }}</div>
+          <div><i class="fa-solid fa-fire-burner"></i><br>{{ cookTime || 'Cuisson' }}</div>
+          <div><i class="fa-solid fa-user-group"></i><br>{{ portions || 'Portions' }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

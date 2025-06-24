@@ -1,9 +1,19 @@
-<nav class="navbar bg-body-tertiary ">
-  <div class="">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2">
+<nav class="navbar navbar-expand-lg bg-white border-bottom px-4 py-2">
+  <div class="container-fluid justify-content-between">
+    <a class="navbar-brand fw-bold text-primary" routerLink="/">KingOfMeal</a>
+
+    <form class="d-flex flex-grow-1 mx-4" role="search">
+      <input class="form-control me-2" type="search" placeholder="Rechercher des recettes, utilisateurs..." />
     </form>
-    <p>peuleu peuleu</p>
+
+    <div class="d-flex align-items-center gap-3">
+      <a class="text-dark" routerLink="/"><i class="fa-solid fa-house"></i></a>
+      <a class="text-dark" routerLink="/explorer"><i class="fa-solid fa-compass"></i></a>
+      <a class="text-dark" routerLink="/favoris"><i class="fa-regular fa-bookmark"></i></a>
+      <a class="btn btn-danger text-white d-flex align-items-center gap-1" routerLink="/create-recipe">
+        <i class="fa-solid fa-plus"></i> Créer
+      </a>
+      <a class="text-dark" routerLink="/profile"><i class="fa-solid fa-user"></i></a>
+    </div>
   </div>
 </nav>
-

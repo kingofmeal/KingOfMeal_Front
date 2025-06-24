@@ -1,0 +1,22 @@
+.photo-upload {
+  background-color: #f9f9f9;
+  cursor: pointer;
+  height: 100%;
+  min-height: 200px;
+}
+
+.photo-thumbnail {
+  height: 100px;
+  background-color: #f0f0f0;
+  font-size: 24px;
+  color: #bbb;
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+.badge {
+  font-weight: 500;
+}
