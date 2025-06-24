@@ -1,0 +1,52 @@
+<div class="d-flex">
+  <app-left-sidebar></app-left-sidebar>
+
+  <div class="flex-grow-1">
+    <app-search-bar></app-search-bar>
+
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-8">
+          <h2 class="fw-bold mb-4">Créer un Nouveau Post</h2>
+
+          <div class="mb-3">
+            <label for="postContent" class="form-label fw-semibold">Contenu du post</label>
+            <textarea id="postContent" [(ngModel)]="content" rows="5" class="form-control" placeholder="Exprime-toi ici..."></textarea>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Image (optionnelle)</label>
+            <div class="photo-upload text-center border rounded d-flex flex-column justify-content-center align-items-center p-4">
+              <i class="fa-solid fa-upload fa-2x mb-2 text-muted"></i>
+              <p class="mb-1 fw-bold">Cliquez ou glissez une image</p>
+              <p class="text-muted small">PNG, JPG ou WEBP (max. 5 MB)</p>
+              <input type="file" accept="image/*" class="form-control mt-2" (change)="onImageSelected($event)">
+            </div>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" disabled>Enregistrer comme brouillon</button>
+            <button class="btn btn-warning text-white" (click)="publishPost()">Publier</button>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="border rounded p-3 shadow-sm">
+            <h5 class="fw-bold mb-3">Aperçu</h5>
+
+            <div class="bg-light d-flex align-items-center justify-content-center mb-3 rounded" style="height: 200px;">
+              <img *ngIf="imageBase64" [src]="imageBase64" alt="Aperçu" class="img-fluid h-100 rounded">
+              <span *ngIf="!imageBase64" class="text-muted">Aucune image sélectionnée</span>
+            </div>
+
+            <p>{{ content || 'Ton message s’affichera ici...' }}</p>
+
+            <div class="text-muted small mt-3">
+              Posté par <strong>vous</strong> – {{ today | date:'dd MMM yyyy à HH:mm' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
