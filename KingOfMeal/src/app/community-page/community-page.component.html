@@ -1,50 +1,5 @@
-<div class="main-content">
-  <h2>Communauté</h2>
-  <p class="text-muted">Échangez, partagez et apprenez avec la communauté</p>
-
-  <!-- Onglets -->
-  <div class="btn-group my-3">
-    <button 
-      class="btn btn-outline-secondary" 
-      [class.active]="activeTab === 'discussions'" 
-      (click)="activeTab = 'discussions'"
-    >Discussions</button>
-    <button 
-      class="btn btn-outline-secondary" 
-      [class.active]="activeTab === 'questions'" 
-      (click)="activeTab = 'questions'"
-    >Questions</button>
-    <button 
-      class="btn btn-outline-secondary" 
-      [class.active]="activeTab === 'conseils'" 
-      (click)="activeTab = 'conseils'"
-    >Conseils</button>
-  </div>
-
-  <!-- Liste des posts -->
-  <div *ngFor="let post of posts" class="card mb-3 shadow-sm">
-    <div class="card-body">
-      <div class="d-flex align-items-center mb-2">
-        <span class="badge bg-success me-2"># {{ post.tag }}</span>
-        <small class="text-muted">{{ post.time }}</small>
-      </div>
-
-      <h5 class="card-title">{{ post.title }}</h5>
-
-      <div class="mb-2">
-        <strong>{{ post.author }}</strong>
-        <p class="mb-0 text-muted" style="font-size: 0.95rem;">
-          {{ post.content }}
-        </p>
-      </div>
-
-      <div class="d-flex justify-content-between mt-3">
-        <div>
-          <i class="pi pi-heart me-1"></i>{{ post.likes }}
-          <i class="pi pi-comments ms-3 me-1"></i>{{ post.comments }}
-        </div>
-        <small class="text-muted">Dernière réponse {{ post.lastReply }}</small>
-      </div>
-    </div>
+<div class="layout">
+  <div class="main-content">
+    <app-community-header></app-community-header>
   </div>
 </div>

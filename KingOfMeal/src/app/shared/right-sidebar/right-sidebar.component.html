@@ -1,0 +1,39 @@
+<div class="right-sidebar p-2">
+  <!-- Hashtags tendance -->
+  <div class="card mb-4 p-3">
+    <h6 class="fw-semibold mb-3 d-flex align-items-center">
+      <i class="pi pi-chart-line me-2"></i>
+      <span>Hashtags tendance</span>
+    </h6>
+    <ul class="list-unstyled mb-0">
+      <li *ngFor="let hashtag of trendingHashtags; let i = index" class="d-flex justify-content-between align-items-center mb-2">
+        <div class="d-flex align-items-center">
+          <span class="fw-semibold text-muted me-2" style="width: 1.5em; display: inline-block;">#{{i+1}}</span>
+          <div>
+            <span class="text-dark">#{{ hashtag.name }}</span>
+            <small class="text-muted d-block">{{ hashtag.posts }} posts</small>
+          </div>
+        </div>
+        <span class="badge rounded-pill bg-success-subtle text-success fw-medium px-2 py-1" style="font-size: 0.9em;">+{{ hashtag.change }}%</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Membres actifs -->
+  <div class="card p-3">
+    <h6 class="fw-semibold mb-3 d-flex align-items-center">
+      <i class="pi pi-user me-2"></i>
+      <span>Membres actifs</span>
+    </h6>
+    <div *ngFor="let member of activeMembers" class="d-flex justify-content-between align-items-center mb-3">
+      <div class="d-flex align-items-center">
+        <span class="rounded-circle bg-light d-inline-block me-2" style="width:32px; height:32px; border:1px solid #e5e7eb;"></span>
+        <div>
+          <div class="fw-medium">{{ member.name }}</div>
+          <small class="text-muted">{{ member.contributions }} contributions</small>
+        </div>
+      </div>
+      <button class="btn btn-outline-dark btn-sm px-3" style="border-radius: 8px;">Suivre</button>
+    </div>
+  </div>
+</div>
