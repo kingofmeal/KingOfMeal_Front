@@ -1,55 +1,52 @@
 import { Component } from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import {NgForOf, NgIf} from "@angular/common";
-import {SidebarComponent} from "../../shared/sidebar/sidebar.component";
-import {SearchBarComponent} from "../../shared/search-bar/search-bar.component";
+import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";  // inclut NgIf, NgForOf et les pipes comme DatePipe
+import { SidebarComponent } from "../../shared/sidebar/sidebar.component";
+import { SearchBarComponent } from "../../shared/search-bar/search-bar.component";
+import { LeftSidebarComponent } from "../../shared/left-sidebar/left-sidebar.component";
+import { Post, PostService } from "../../services/post.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-recipe',
+  standalone: true,
   imports: [
+    SearchBarComponent,
+    LeftSidebarComponent,
     FormsModule,
-    NgIf,
-    NgForOf,
-    SidebarComponent,
-    SearchBarComponent
+    CommonModule
   ],
-  templateUrl: './create-recipe.component.html',
-  styleUrl: './create-recipe.component.css'
+  templateUrl: './create-recipe.component.html'
 })
 export class CreateRecipeComponent {
-  title: string = '';
-  description: string = '';
-  prepTime: string = '';
-  cookTime: string = '';
-  portions: string = '';
-  tags: string[] = ['dessert', 'fraises', 'tarte'];
+  content = '';
+  imageBase64: string | null = null;
+  today = new Date();
+  customerId = 101; // ou récupérer dynamiquement si tu as un auth service
 
-  imagePreview: string | ArrayBuffer | null = null;
+  constructor(private postService: PostService, private router: Router) {}
 
-  onImageSelected(event: Event): void {
-    const file = (event.target as HTMLInputElement)?.files?.[0];
+  onImageSelected(event: Event) {
+    const file = (event.target as HTMLInputElement).files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        this.imagePreview = reader.result;
+        this.imageBase64 = reader.result as string;
       };
       reader.readAsDataURL(file);
     }
   }
 
-  saveDraft(): void {
-    console.log('Recette enregistrée comme brouillon');
-  }
+  publishPost() {
+    const post: Post = {
+      id: Date.now(),
+      content: this.content,
+      customerId: this.customerId,
+      imageContent: this.imageBase64 || '',
+      creationDate: new Date()
+    };
 
-  publishRecipe(): void {
-    console.log('Recette publiée :', {
-      title: this.title,
-      description: this.description,
-      prepTime: this.prepTime,
-      cookTime: this.cookTime,
-      portions: this.portions,
-      tags: this.tags
-    });
+    this.postService.addPost(post);
+    this.router.navigate(['/']); // retour à la page d’accueil
   }
-
 }

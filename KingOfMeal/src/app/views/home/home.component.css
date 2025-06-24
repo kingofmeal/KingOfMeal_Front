@@ -5,6 +5,7 @@ body {
   color: #222;
   margin: 0;
   line-height: 1.6;
+
 }
 
 /* --- Sidebar --- */
@@ -49,6 +50,29 @@ body {
   color: #222;
   font-weight: 500;
 }
+.main-layout {
+  margin-left: 250px; /* Doit correspondre à la largeur de la sidebar */
+  width: calc(100% - 250px); /* Ajuste la largeur du contenu principal */
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px; /* Hauteur de la navbar */
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.main-content {
+  margin-top: 80px; /* Ajustez selon la hauteur de votre navbar */
+  padding: 20px;
+}
+
+
 
 /* --- Topbar --- */
 .topbar {

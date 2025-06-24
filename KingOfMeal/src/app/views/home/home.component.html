@@ -1,13 +1,10 @@
 <div class="d-flex">
-  <!-- Sidebar réutilisable -->
-  <app-sidebar></app-sidebar>
-
-  <!-- Partie droite : barre de recherche + contenu -->
+  <!-- Sidebar réutilisable avec position fixe -->
+  <app-left-sidebar class="fixed-sidebar"></app-left-sidebar>
   <div class="flex-grow-1">
-    <!-- Barre de recherche (navbar) réutilisable -->
-    <app-search-bar></app-search-bar>
-
-    <div class="container-fluid mt-3">
+    <!-- Barre de recherche (navbar) réutilisable avec position fixe -->
+    <app-search-bar class="fixed-navbar"></app-search-bar>
+    <div class="container-fluid mt-3 main-content">
       <div class="row">
         <!-- Colonne principale : fil d’actualité -->
         <div class="col-md-9">
@@ -17,56 +14,64 @@
             <button class="btn btn-outline-secondary me-2">Récents</button>
             <button class="btn btn-outline-secondary">Populaires</button>
           </div>
-
           <!-- Posts -->
           <div class="post-card" *ngFor="let post of posts">
             <div class="image-placeholder">
               <i class="fa-solid fa-image"></i>
+              <img *ngIf="post.imageContent" [src]="post.imageContent" alt="Post image">
             </div>
             <div class="post-details">
-              <p class="author"><i class="fa-solid fa-user-circle"></i> {{ post.author }}</p>
-              <h5>{{ post.title }}</h5>
-              <p>{{ post.description }}</p>
+              <!-- Afficher le nom de l'utilisateur -->
+              <p class="author">
+                <i class="fa-solid fa-user-circle"></i>
+                {{ isCurrentUserPost(post.customerId) ? 'Vous-même' : getUserName(post.customerId) }}
+              </p>
+              <p>{{ post.content }}</p>
+              <p class="text-muted">{{ post.creationDate | date }}</p>
               <div class="tags mb-2">
-                <span *ngFor="let tag of post.tags" class="badge bg-light text-dark me-1">#{{ tag }}</span>
+                <span class="badge bg-light text-dark me-1">#Angular</span>
+                <span class="badge bg-light text-dark me-1">#TypeScript</span>
               </div>
               <div class="interactions">
-                <span><i class="fa-solid fa-heart text-danger"></i> {{ post.likes }}</span>
-                <span><i class="fa-solid fa-comment text-secondary"></i> {{ post.comments }}</span>
+                <span><i class="fa-solid fa-heart text-danger"></i> 0</span>
+                <span><i class="fa-solid fa-comment text-secondary"></i> 0</span>
               </div>
             </div>
           </div>
         </div>
-
         <!-- Colonne droite : hashtags + concours -->
-        <div class="col-md-3">
+        <div class="col-md-3 d-none d-md-block" style="position: sticky; top: 80px; align-self: flex-start; height: fit-content;">
+          <!-- Bouton Nouveau post -->
+          <div class="mb-4 text-end">
+            <a routerLink="/create-recipe" class="btn w-100 text-white fw-semibold" style="background-color: #f57c00;">
+              <i class="fa-solid fa-plus me-2"></i> Nouveau post
+            </a>
+          </div>
           <!-- Hashtags tendance -->
-          <div class="hashtags mb-4">
-            <h5>Hashtags tendance</h5>
-            <ul class="list-unstyled">
-              <li *ngFor="let tag of trendingTags">
-                <i class="fa-solid fa-hashtag"></i> {{ tag }}
+          <div class="mb-4">
+            <h5 class="fw-semibold">Hashtags tendance</h5>
+            <ul class="list-unstyled d-flex flex-wrap gap-2">
+              <li *ngFor="let tag of trendingTags" class="bg-light text-dark px-3 py-1 rounded-pill" style="font-size: 0.85rem; cursor: pointer;">
+                <i class="fa-solid fa-hashtag me-1"></i> {{ tag }}
               </li>
             </ul>
           </div>
-
           <!-- Concours à venir -->
           <div class="mb-4">
-            <h5>Concours à venir</h5>
+            <h5 class="fw-semibold">Concours à venir</h5>
             <ul class="list-unstyled">
-              <li *ngFor="let contest of upcomingContests">
+              <li *ngFor="let contest of upcomingContests" class="mb-2">
                 <i class="fa-solid fa-calendar-days me-2 text-secondary"></i>
                 <strong>{{ contest.title }}</strong> – commence dans {{ contest.startsInDays }} jours
               </li>
             </ul>
           </div>
-
           <!-- Concours actuel -->
-          <div class="contest-box p-3 border rounded bg-light">
-            <strong>{{ currentContest.title }}</strong>
-            <div class="text-danger">{{ currentContest.daysLeft }} jours restants</div>
-            <p>{{ currentContest.participants }} participants</p>
-            <button class="btn btn-sm btn-outline-primary mt-2">Participer</button>
+          <div class="bg-white p-3 rounded shadow-sm">
+            <strong class="d-block mb-2">{{ currentContest.title }}</strong>
+            <span class="badge bg-danger-subtle text-danger mb-2">{{ currentContest.daysLeft }} jours restants</span>
+            <p class="text-muted mb-2">{{ currentContest.participants }} participants</p>
+            <button class="btn w-100 text-white fw-semibold" style="background-color: #f57c00">Participer</button>
           </div>
         </div>
       </div>
