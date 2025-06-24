@@ -16,7 +16,7 @@
   </button>
 </div>
 
-<!-- Dialog -->
+<!-- Dialog (création) -->
 <p-dialog header="Créer un concours"
           [(visible)]="displayDialog"
           [modal]="true"
@@ -25,26 +25,39 @@
   <app-add-contest (contestCreated)="onContestCreated($event)"></app-add-contest>
 </p-dialog>
 
-<!-- Liste En cours -->
+<!-- 👉 Dialog (détails) – large, sans style inline -->
+<p-dialog
+  header="Détails du concours"
+  [(visible)]="displayDetailsDialog"
+  modal="true"
+  dismissableMask="true"
+  class="details-dialog">
+</p-dialog>
+
+
+<!-- Liste : En cours -->
 <div class="contest-list" *ngIf="selectedCategory === 'En cours'">
   <app-contest-card
     *ngFor="let c of contestsInProgress"
-    [contest]="c">
+    [contest]="c"
+    (voirDetailsClicked)="openDetailsDialog(c)">
   </app-contest-card>
 </div>
 
-<!-- Liste À venir -->
+<!-- Liste : À venir -->
 <div class="contest-list" *ngIf="selectedCategory === 'À venir'">
   <app-contest-card
     *ngFor="let c of contestsUpcoming"
-    [contest]="c">
+    [contest]="c"
+    (voirDetailsClicked)="openDetailsDialog(c)">
   </app-contest-card>
 </div>
 
-<!-- Liste Terminés -->
+<!-- Liste : Terminés -->
 <div class="contest-list" *ngIf="selectedCategory === 'Terminés'">
   <app-contest-card
     *ngFor="let c of contestsFinished"
-    [contest]="c">
+    [contest]="c"
+    (voirDetailsClicked)="openDetailsDialog(c)">
   </app-contest-card>
 </div>

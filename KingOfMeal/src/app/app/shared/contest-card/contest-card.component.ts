@@ -1,6 +1,7 @@
 // contest-card.component.ts
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {RouterModule} from "@angular/router";
 
 export interface Contest {
   name: string;
@@ -15,12 +16,14 @@ export interface Contest {
 @Component({
   selector: 'app-contest-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './contest-card.component.html',
   styleUrls: ['./contest-card.component.css']
 })
 export class ContestCardComponent {
   @Input() contest!: Contest;
+
+  @Output() voirDetailsClicked = new EventEmitter<Contest>();
 
   /** Renvoie 'inProgress' | 'upcoming' | 'finished' */
   get status(): 'inProgress' | 'upcoming' | 'finished' {
@@ -31,5 +34,9 @@ export class ContestCardComponent {
     if (end < today) return 'finished';
     if (start > today) return 'upcoming';
     return 'inProgress';
+  }
+
+  voirDetails() {
+    this.voirDetailsClicked.emit(this.contest);
   }
 }

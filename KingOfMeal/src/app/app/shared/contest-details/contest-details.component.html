@@ -1,0 +1,20 @@
+<div class="contest-details-container">
+  <h2>{{ contest.name }}</h2>
+  <p class="desc">{{ contest.description }}</p>
+
+  <p>
+    <strong>Dates&nbsp;:</strong>
+    {{ contest.startDate | date:'longDate' }}
+    →
+    {{ contest.endDate   | date:'longDate' }}
+  </p>
+
+  <p>
+    <strong>Visibilité&nbsp;:</strong>
+    {{ contest.visibility === 'public' ? 'Publique' : 'Privée' }}
+  </p>
+
+  <p *ngIf="contest.tag">
+    <strong>Tag&nbsp;:</strong> #{{ contest.tag }}
+  </p>
+</div>

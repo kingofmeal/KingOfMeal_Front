@@ -1,0 +1,7 @@
+.contest-details-container {
+  padding: 1rem 1.5rem;
+  font-size: 15px;
+}
+
+h2   { margin: 0 0 0.5rem 0; color: #3a0a54; }
+.desc{ margin-bottom: 1rem; color: #555; }

@@ -17,7 +17,7 @@
 
       <!-- En cours -->
       <div class="actions" *ngSwitchCase="'inProgress'">
-        <button class="details dark">Voir détails</button>
+        <button class="details dark" (click)="voirDetails()">Voir détails</button>
         <button class="participate">Participer</button>
       </div>
 

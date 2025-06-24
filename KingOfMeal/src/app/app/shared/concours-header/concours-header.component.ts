@@ -17,23 +17,31 @@ import {Contest, ContestCardComponent} from "../contest-card/contest-card.compon
 })
 export class ConcoursHeaderComponent {
   displayDialog = false;
+  displayDetailsDialog = false;
+  selectedContest: Contest | null = null;
 
   categoryOptions = ['En cours', 'À venir', 'Terminés'];
   selectedCategory = 'En cours';
 
   contestsInProgress: Contest[] = [];
-  contestsUpcoming: Contest[] = [];
-  contestsFinished: Contest[] = [];
+  contestsUpcoming:   Contest[] = [];
+  contestsFinished:   Contest[] = [];
 
   openDialog() {
     this.displayDialog = true;
   }
 
-  /** Réception du concours créé */
+  /** Ouvre la modale détail */
+  openDetailsDialog(c: Contest) {
+    this.selectedContest = c;
+    this.displayDetailsDialog = true;
+  }
+
+  /** Réception du concours créé depuis <app-add-contest> */
   onContestCreated(c: Contest) {
-    const today = new Date();
-    const start = new Date(c.startDate);
-    const end = new Date(c.endDate);
+    const today  = new Date();
+    const start  = new Date(c.startDate);
+    const end    = new Date(c.endDate);
 
     if (end < today) {
       this.contestsFinished.unshift(c);
@@ -45,7 +53,6 @@ export class ConcoursHeaderComponent {
       this.contestsInProgress.unshift(c);
       this.selectedCategory = 'En cours';
     }
-
     this.displayDialog = false;
   }
 }

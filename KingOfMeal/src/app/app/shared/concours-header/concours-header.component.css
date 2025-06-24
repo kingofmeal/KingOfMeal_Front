@@ -80,4 +80,18 @@
   margin-top: 2rem;
 }
 
+/* --- Modale très haute --- */
+::ng-deep .details-dialog .p-dialog {
+  width: 95vw !important;
+  max-width: 1400px;
+  max-height: 90vh;
+}
+
+::ng-deep .details-dialog .p-dialog-content {
+  height: 500px;
+  max-height: 85vh;
+  overflow: auto;
+  padding: 2rem;
+}
+
 
