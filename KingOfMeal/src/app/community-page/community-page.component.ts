@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-community-page', // corrige aussi le selector
+  standalone: true,               // <-- ajoute cette ligne
+  imports: [CommonModule],        // <-- ajoute cette ligne
   templateUrl: './community-page.component.html',
 })
 export class CommunityPageComponent {

@@ -22,7 +22,7 @@
   </div>
 
   <!-- Liste des posts -->
-  <div class="card mb-3 shadow-sm">
+  <div *ngFor="let post of posts" class="card mb-3 shadow-sm">
     <div class="card-body">
       <div class="d-flex align-items-center mb-2">
         <span class="badge bg-success me-2"># {{ post.tag }}</span>
