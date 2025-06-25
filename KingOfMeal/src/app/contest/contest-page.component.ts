@@ -5,15 +5,15 @@ import {SearchBarComponent} from "../shared/search-bar/search-bar.component";
 import {ConcoursHeaderComponent} from "../app/shared/concours-header/concours-header.component";
 
 @Component({
-  selector: 'app-profile-page',
+  selector: 'app-contest-page',
   imports: [
     LeftSidebarComponent,
     RightSidebarComponent,
     ConcoursHeaderComponent
   ],
-  templateUrl: './profile-page.component.html',
+  templateUrl: './contest-page.component.html',
   standalone: true,
-  styleUrl: './profile-page.component.css'
+  styleUrl: './contest-page.component.css'
 })
-export class ProfilePageComponent {
+export class ContestPageComponent {
 }
