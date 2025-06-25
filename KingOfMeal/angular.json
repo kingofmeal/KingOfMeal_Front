@@ -36,11 +36,6 @@
             "scripts": [
               "node_modules/@fortawesome/fontawesome-free/js/all.min.js"
             ],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
           },
           "configurations": {
             "production": {

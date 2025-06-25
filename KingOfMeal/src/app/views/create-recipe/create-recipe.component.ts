@@ -43,7 +43,8 @@ export class CreateRecipeComponent {
       content: this.content,
       customerId: this.customerId,
       imageContent: this.imageBase64 || '',
-      creationDate: new Date()
+      creationDate: '',
+      updatedDate: ''
     };
 
     this.postService.addPost(post);
