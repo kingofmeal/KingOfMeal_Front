@@ -56,3 +56,9 @@
   background-color: #ddd;
   color: #333;
 }
+
+.logo-img {
+  height: 40px;
+  object-fit: contain;
+  margin-left: 1.5em;
+}

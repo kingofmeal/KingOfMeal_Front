@@ -1,0 +1,96 @@
+/* ------ conteneur général ------ */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+/* ------ groupes ------ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ------ champs texte ------ */
+.form-control,
+input[type="text"],
+textarea {
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-control:focus,
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #533745;          /* violet signature */
+}
+
+/* ------ radio ------ */
+.radio-group {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 400;
+}
+
+/* ------ chips ------ */
+.chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.chip {
+  background-color: #533745;      /* violet */
+  color: #fff;
+  padding: 0.2rem 0.8rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+.chip.tag {
+  background-color: #72b01d;      /* vert */
+}
+
+.chip .remove {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+/* ------ bouton soumettre ------ */
+.submit-button {
+  background-color: #fa6351;      /* orange */
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.3rem;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background 0.3s;
+}
+.submit-button:hover {
+  background-color: #d65343;
+}

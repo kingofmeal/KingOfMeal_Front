@@ -1,0 +1,63 @@
+<div class="header-container">
+  <div class="header-title">
+    <h2>Concours Culinaires</h2>
+    <p>Participez aux défis et montrez vos talents !</p>
+
+    <p-selectButton
+      [options]="categoryOptions"
+      [(ngModel)]="selectedCategory"
+      class="custom-select-button">
+    </p-selectButton>
+  </div>
+
+  <button class="create-button" (click)="openDialog()">
+    <i class="pi pi-trophy"></i>
+    Créer Concours
+  </button>
+</div>
+
+<!-- Dialog (création) -->
+<p-dialog header="Créer un concours"
+          [(visible)]="displayDialog"
+          [modal]="true"
+          [dismissableMask]="true"
+          [style]="{ width: '520px' }">
+  <app-add-contest (contestCreated)="onContestCreated($event)"></app-add-contest>
+</p-dialog>
+
+<!-- 👉 Dialog (détails) – large, sans style inline -->
+<p-dialog
+  header="Détails du concours"
+  [(visible)]="displayDetailsDialog"
+  modal="true"
+  dismissableMask="true"
+  class="details-dialog">
+</p-dialog>
+
+
+<!-- Liste : En cours -->
+<div class="contest-list" *ngIf="selectedCategory === 'En cours'">
+  <app-contest-card
+    *ngFor="let c of contestsInProgress"
+    [contest]="c"
+    (voirDetailsClicked)="openDetailsDialog(c)">
+  </app-contest-card>
+</div>
+
+<!-- Liste : À venir -->
+<div class="contest-list" *ngIf="selectedCategory === 'À venir'">
+  <app-contest-card
+    *ngFor="let c of contestsUpcoming"
+    [contest]="c"
+    (voirDetailsClicked)="openDetailsDialog(c)">
+  </app-contest-card>
+</div>
+
+<!-- Liste : Terminés -->
+<div class="contest-list" *ngIf="selectedCategory === 'Terminés'">
+  <app-contest-card
+    *ngFor="let c of contestsFinished"
+    [contest]="c"
+    (voirDetailsClicked)="openDetailsDialog(c)">
+  </app-contest-card>
+</div>

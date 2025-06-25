@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="image-placeholder"></div>
+
+  <div class="info">
+    <span class="tag" *ngIf="contest.tag">#{{ contest.tag }}</span>
+
+    <h3>{{ contest.name }}</h3>
+    <p>{{ contest.description }}</p>
+
+    <div class="dates">
+      📅 {{ contest.startDate | date:'dd/MM/yyyy' }}
+      → {{ contest.endDate | date:'dd/MM/yyyy' }}
+    </div>
+
+    <!-- Actions selon le statut -->
+    <ng-container [ngSwitch]="status">
+
+      <!-- En cours -->
+      <div class="actions" *ngSwitchCase="'inProgress'">
+        <button class="details dark" (click)="voirDetails()">Voir détails</button>
+        <button class="participate">Participer</button>
+      </div>
+
+      <!-- À venir -->
+      <div class="actions" *ngSwitchCase="'upcoming'">
+        <button class="details light">Voir détails</button>
+        <button class="disabled">Bientôt disponible</button>
+      </div>
+
+      <!-- Terminés -->
+      <div class="actions" *ngSwitchCase="'finished'">
+        <button class="details light full">Voir les résultats</button>
+      </div>
+
+    </ng-container>
+  </div>
+</div>

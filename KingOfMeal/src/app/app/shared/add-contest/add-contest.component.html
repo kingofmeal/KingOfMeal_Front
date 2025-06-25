@@ -1,0 +1,80 @@
+<form class="form-container" (ngSubmit)="submit()">
+
+  <!-- Nom -->
+  <div class="form-group">
+    <label for="title">Nom du concours</label>
+    <input id="title" name="title" type="text" class="form-control"
+           [(ngModel)]="name" required />
+  </div>
+
+  <!-- Description -->
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="3" class="form-control"
+              [(ngModel)]="description"></textarea>
+  </div>
+
+  <!-- Dates -->
+  <div class="form-group">
+    <label for="startDate">Date de début</label>
+    <p-calendar inputId="startDate" name="startDate"
+                [(ngModel)]="startDate" dateFormat="dd/mm/yy"></p-calendar>
+  </div>
+
+  <div class="form-group">
+    <label for="endDate">Date de fin</label>
+    <p-calendar inputId="endDate" name="endDate"
+                [(ngModel)]="endDate" dateFormat="dd/mm/yy"></p-calendar>
+  </div>
+
+  <!-- Visibilité -->
+  <div class="form-group">
+    <label>Visibilité</label>
+    <div class="radio-group">
+      <label>
+        <p-radioButton name="visibility" value="public"
+                       [(ngModel)]="visibility" inputId="visPublic"></p-radioButton>
+        <span>Public</span>
+      </label>
+
+      <label>
+        <p-radioButton name="visibility" value="private"
+                       [(ngModel)]="visibility" inputId="visPrivate"></p-radioButton>
+        <span>Privé</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Invitations -->
+  <div class="form-group">
+    <label>Inviter des personnes</label>
+    <input name="invitation" type="text" [(ngModel)]="newInvite"
+           (keydown.enter)="addInvite(); $event.preventDefault()"
+           placeholder="Nom à inviter" />
+    <div class="chip-container">
+      <span class="chip"
+            *ngFor="let invite of invitedUsers; let i = index">
+        {{ invite }}
+        <button type="button" class="remove" (click)="removeInvite(i)">×</button>
+      </span>
+    </div>
+  </div>
+
+  <!-- Tags -->
+  <div class="form-group">
+    <label>Ajouter des tags</label>
+    <input name="tag" type="text" [(ngModel)]="newTag"
+           (keydown.enter)="addTag(); $event.preventDefault()"
+           placeholder="Ex. CuisineVegan" />
+    <div class="chip-container">
+      <span class="chip tag"
+            *ngFor="let tag of tags; let i = index">
+        #{{ tag }}
+        <button type="button" class="remove" (click)="removeTag(i)">×</button>
+      </span>
+    </div>
+  </div>
+
+  <!-- Bouton -->
+  <button type="submit" class="submit-button">Créer</button>
+</form>

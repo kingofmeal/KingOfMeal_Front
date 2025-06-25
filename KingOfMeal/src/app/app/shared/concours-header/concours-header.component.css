@@ -1,0 +1,97 @@
+/* ---- conteneur général ---- */
+.header-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ---- titre ---- */
+.header-title {
+  flex: 1;
+}
+.header-title h2 { margin: 0; font-size: 26px; font-weight: 700; }
+.header-title p  { margin: 0 0 1rem 0; color: #6b6b6b; font-size: 15px; }
+
+/* ---- selectButton custom ---- */
+.contest-tabs {
+  background: #f3f3f4;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.contest-tabs .p-button {
+  background: transparent;
+  color: #6b6b6b;
+  border: none;
+  font-weight: 500;
+}
+.contest-tabs .p-button:not(:last-child) {
+  margin-right: 0.2rem;
+}
+.contest-tabs .p-highlight {
+  background: #ffffff;
+  color: #000;
+  box-shadow: 0 0 0 1px #e2e2e2 inset;
+  border-radius: 4px;
+}
+
+/* ---- bouton rouge ---- */
+.create-button {
+  background-color: #fa6351;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.create-button:hover {
+  background-color: #d65343;
+}
+
+/* Largeur max étendue */
+.custom-select-button {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 600px; /* Étire le composant horizontalement */
+  --p-selectbutton-padding: 0.4rem 2rem;
+}
+
+/* Réduction de la hauteur des boutons */
+.p-selectbutton .p-button {
+  padding: 0.4rem 1.5rem !important; /* moins haut */
+  font-size: 14px;
+  height: 2.5rem; /* fixe la hauteur */
+  border-radius: 0.5rem;
+}
+
+/* Grille responsive pour les cartes concours */
+.contest-list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  margin-top: 2rem;
+}
+
+/* --- Modale très haute --- */
+::ng-deep .details-dialog .p-dialog {
+  width: 95vw !important;
+  max-width: 1400px;
+  max-height: 90vh;
+}
+
+::ng-deep .details-dialog .p-dialog-content {
+  height: 500px;
+  max-height: 85vh;
+  overflow: auto;
+  padding: 2rem;
+}
+
+
